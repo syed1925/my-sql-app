@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Enrollments</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+   body {
+      background: linear-gradient(180.4deg, rgba(0,6,10,1) 1%, rgba(1,190,237,1) 91.4%);
+      color: white;
+      font-family: 'Segoe UI', sans-serif;
+    }
+
+    .navbar {
+      box-shadow: 0 4px 10px rgba(0,0,0,0.4);
+    }
+
+    .intro-box {
+      background-color: rgba(255,255,255,0.1);
+      border-radius: 15px;
+      padding: 30px;
+      backdrop-filter: blur(10px);
+      box-shadow: 0 0 15px rgba(0,0,0,0.3);
+    }
+
+    .hover-img {
+      transition: 0.4s ease;
+      border-radius: 15px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+    }
+
+    .hover-img:hover {
+      transform: scale(1.05);
+      box-shadow: 0 6px 25px rgba(255,255,255,0.5);
+    }
+
+    .btn-custom {
+      margin: 10px;
+    }
+</style>
+
+</head>
+<body class="bg-light">
+    
+    {% include 'navbar.html' %}
+    <div class="container mt-5">
+        <h2 class="mb-4 text-center text-primary">📝 Enrollments</h2>
+        <table class="table table-bordered table-hover">
+            <thead class="table-dark">
+                <tr><th>ID</th><th>Student ID</th><th>Course ID</th></tr>
+            </thead>
+            <tbody>
+  {% for enrollment in enrollments %}
+    <tr>
+      <td>{{ enrollment.id }}</td>
+      <td>{{ enrollment.student_id }}</td>
+      <td>{{ enrollment.course_id }}</td>
+    </tr>
+  {% endfor %}
+</tbody>
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <div class="container-fluid">
+    <div>
+      <a class="btn btn-outline-light btn-sm" href="/">Home</a>
+    </div></div></nav>
+        </table>
+        <a href="/" class="btn btn-secondary">← Back</a>
+    </div>
+</body>
+</html>
