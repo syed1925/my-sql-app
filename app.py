@@ -97,11 +97,11 @@ class Result(db.Model):
     enrollment_id = db.Column(db.Integer)
     score = db.Column(db.Float)
 
-# Route
 @app.route('/results')
 def show_results():
     results = Result.query.all()
     return render_template('results.html', results=results)
+
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=8000)
