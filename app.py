@@ -4,10 +4,11 @@ from flask_sqlalchemy import SQLAlchemy
 app = Flask(__name__)
 
 # 📦 MySQL connection with SQLAlchemy
-app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql+mysqlconnector://root:syedminhaj9270@localhost/student_management'
+# app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql+mysqlconnector://root:syedminhaj9270@localhost/student_management'
 
 
-app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False 
+app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql+mysqlconnector://root:InmSyHdmdPeDkVwCFTVDTwWTxZnVoMcb@mysql.railway.internal:3306/railway'
+
 
 db = SQLAlchemy(app)
 
