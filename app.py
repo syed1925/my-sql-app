@@ -1,16 +1,24 @@
+from flask import Flask
 from flask import Flask, render_template, request, redirect, url_for
+
 from flask_sqlalchemy import SQLAlchemy
+from dotenv import load_dotenv
+import os
+
+load_dotenv()  # ✅ Load .env variables
 
 app = Flask(__name__)
+print("DATABASE_URL:", os.getenv("DATABASE_URL"))  # ✅ Confirm it loads
 
-# 📦 MySQL connection with SQLAlchemy
-# app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql+mysqlconnector://root:syedminhaj9270@localhost/student_management'
-
-
-app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql+mysqlconnector://root:InmSyHdmdPeDkVwCFTVDTwWTxZnVoMcb@mysql.railway.internal:3306/railway'
-
+app.config['SQLALCHEMY_DATABASE_URI'] = os.getenv("DATABASE_URL")  # ✅ Use env variable
 
 db = SQLAlchemy(app)
+
+
+
+
+
+
 
 # 🧾 Student Model
 class Student(db.Model):
@@ -104,8 +112,7 @@ def show_results():
     return render_template('results.html', results=results)
 
 
-import os
-
 if __name__ == '__main__':
-    port = int(os.environ.get('PORT', 5000))
-    app.run(host='0.0.0.0', port=port)
+    app.run(debug=True)
+
+
